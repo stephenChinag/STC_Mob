@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:first_app/styled_text.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
@@ -13,15 +14,7 @@ class GradientContainer extends StatelessWidget {
           Color.fromARGB(26, 5, 12, 40)
         ], begin: Alignment.topLeft, end: Alignment.bottomRight),
       ),
-      child: const Center(
-        child: Text(
-          "Dante Morning",
-          style: TextStyle(
-              fontSize: 24.0,
-              color: Color.fromARGB(255, 241, 255, 246),
-              decoration: TextDecoration.underline),
-        ),
-      ),
+      child: const Center(child: StyledText()),
     );
   }
 }
