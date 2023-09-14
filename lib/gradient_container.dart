@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/styled_text.dart';
 
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
+//ignore: must_be_immutable
 class GradientContainer extends StatelessWidget {
-  const GradientContainer(
+  GradientContainer(
     this.color1,
     this.color2, {
     super.key,
@@ -13,6 +13,14 @@ class GradientContainer extends StatelessWidget {
   // initializiation work
   final Color color1;
   final Color color2;
+  var activeImage = "assets/images/dice-6.png";
+
+  // event trigger Button
+  void rollDice() {
+    activeImage = "assets/images/dice-3.png";
+    // ignore: avoid_print
+    print("Changing Image...");
+  }
 
   @override
   Widget build(context) {
@@ -26,12 +34,18 @@ class GradientContainer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              "assets/images/dice-6.png",
+              activeImage,
               width: 150,
             ),
+            const SizedBox(height: 20),
             TextButton(
-              onPressed: () {},
-              child: const Text("Press to roll a dice"),
+              onPressed: rollDice,
+              style: TextButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(31, 249, 6, 6),
+                  padding: const EdgeInsets.all(24),
+                  foregroundColor: Colors.amber,
+                  textStyle: const TextStyle(fontSize: 39)),
+              child: const Text("Roll Dice"),
             )
           ],
         ),
@@ -39,7 +53,6 @@ class GradientContainer extends StatelessWidget {
     );
   }
 }
-
 
 // class GradientContainer extends StatelessWidget {
 //   const GradientContainer({super.key, required this.color});
